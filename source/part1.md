@@ -2,7 +2,7 @@ Part 1: Blog
 ------------
 
 As a way of exploring the Sylius Resource and Grid bundles we will create a
-simple blogging system.
+ssimple blogging system.
 
 ### Create Post entity
 
@@ -277,7 +277,7 @@ class PostController
 ```
 
 ```
-<layout template path here>
+SyliusShopBundle/views/layout.html.twig
 ```
 
 ```yaml

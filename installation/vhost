@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+
+    ServerName sylius-handouts.websc
+    DocumentRoot /var/www/summercamp/workshops/sylius-handouts
+    DirectoryIndex index.html
+
+    <Directory /var/www/summercamp/workshops/sylius-handouts>
+        Options +Indexes
+    </Directory>
+
+</VirtualHost>
