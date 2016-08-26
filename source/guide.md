@@ -134,7 +134,7 @@ fos_rest:
 
 ---
 
-### HTML CRUD configuration
+### [`rest_crud`] HTML CRUD configuration
 
 Create the routing for the HTML rest interface.
 
@@ -165,7 +165,7 @@ SyliusAdminBundle:Crud
 $ php app/console debug:router # grep is your friend
 ```
 
-### Grid Configuration
+### [`html_crud`] Grid Configuration
 
 Configure a grid for listing posts (the posts index page).
 
@@ -222,7 +222,7 @@ sylius_grid:
      # ...
 ```
 
-### Backend Menu
+### [`grid_configuration`] Backend Menu
 
 Create a menu item in the admin interface.
 
@@ -266,7 +266,7 @@ services:
                 method: <your method name>
 ```
 
-### Create a frontend controller
+### [`admin_menu`] Create a frontend controller
 
 Create a controller and template for listing the blog posts on the front end.
 
@@ -347,7 +347,7 @@ Sylius is fully internationalized at the core. But creating translatable
 entities is not trivial. In this exercise we will add translations to our
 blog post.
 
-### Create translation entity.
+### [`frontend_controller`] Create translation entity.
 
 Create a new entity which will contain the translations for the existing
 `Post` entity and update the post entity to use it.
@@ -376,7 +376,7 @@ $this->translate()->setTitle($title);
 - `@ORM\GeneratedValue()`
 - `@ORM\Column(type="string")`
 
-### Form types
+### Form types (translation continued)
 
 In order to allow the user to translate fields we need to create a new form
 type for the `Post` entity (it will no longer be dynamically created) and
@@ -487,6 +487,8 @@ Taxonomies
 We will add the ability to categorize our blog posts using the Sylius taxonomy
 system. This one is easy!
 
+### [`translations`] Add Taxonomy to Post
+
 1. Create a new taxon in the admin interface called "blog" and add some
    children (e.g. `symfony`, `sylius`, `croatia`).
 2. Add a new property to the `Post` entity `$categories` and map it as
@@ -517,7 +519,7 @@ We want to be able to be able to give customers discount based on how much
 In order to trigger a promotion action when a customers Karma exceeds a given
 amount we need to create a rule checker.
 
-### Override customer object and add Karma field
+### [`taxonomy`] Override customer object and add Karma field
 
 Override the customer object add an integer field for Karma with a getter and
 setter.
@@ -552,7 +554,7 @@ $ php app/console doctrine:schema:update --force
 $ php app/console sylius:fixtures:load
 ```
 
-### Override customer form and edit template
+### [`karma_customer_entity`] Override customer form and edit template
 
 1. Override the customer form, adding the `karma` field.
 2. Configure the customer bundle to use the form
@@ -572,7 +574,7 @@ use Sylius\Bundle\CoreBundle\Form\Type\CustomerType as BaseCustomerType;
 app/Resources/SyliusAdminBundle/views/Customer/_form.html.twig
 ```
 
-### Create a promotion rule checker
+### [`karma_customer_form'] Create a promotion rule checker
 
 The rule checker will allow us to use the Karma of a customer as a trigger to
 apply a discount.
@@ -598,7 +600,7 @@ Hints:
     label: Customer Karma
 ```
 
-## Karma Multiplier
+## [`karma_multiplier`] Karma Multiplier
 
 When the rule is met the customers karma should be multiplied.
 
